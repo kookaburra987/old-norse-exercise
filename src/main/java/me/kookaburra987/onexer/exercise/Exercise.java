@@ -1,8 +1,6 @@
 package me.kookaburra987.onexer.exercise;
 
 import lombok.Getter;
-import me.kookaburra987.oldnorse.utils.Assert;
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.List;
 
@@ -13,10 +11,11 @@ import static org.apache.commons.collections4.CollectionUtils.size;
  * A list of lines for which the user has to do the {@link Task}.
  */
 public class Exercise {
-    @Getter
-    private Task task;
 
-    private List<String> lines;
+    @Getter
+    private final Task task;
+
+    private final List<String> lines;
 
     public Exercise(Task task, List<String> lines) {
         notNull(task, "task is null");

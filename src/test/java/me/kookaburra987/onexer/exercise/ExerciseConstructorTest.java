@@ -39,6 +39,21 @@ class ExerciseConstructorTest {
     }
 
     @Test
+    void given101LinesShouldThrowException(){
+        Executable doCreateExercise = () -> {
+            ArrayList<String> lines = new ArrayList<>();
+            for (int i = 0; i < 101; i++) {
+                lines.add("line");
+            }
+            new Exercise(TRANSLATE_TO_ENGLISH, lines);
+        };
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, doCreateExercise);
+
+        assertEquals("max lines is 100", e.getMessage());
+    }
+
+    @Test
     void givenOneLineShouldCreateExercise(){
         Exercise exercise = new Exercise(TRANSLATE_TO_ENGLISH, List.of("line1"));
 

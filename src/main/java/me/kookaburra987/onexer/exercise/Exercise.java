@@ -1,11 +1,12 @@
 package me.kookaburra987.onexer.exercise;
 
 import lombok.Getter;
+import me.kookaburra987.oldnorse.utils.Assert;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.List;
 
-import static me.kookaburra987.oldnorse.utils.Assert.notEmpty;
-import static me.kookaburra987.oldnorse.utils.Assert.notNull;
+import static me.kookaburra987.oldnorse.utils.Assert.*;
 import static org.apache.commons.collections4.CollectionUtils.size;
 
 /**
@@ -20,6 +21,7 @@ public class Exercise {
     public Exercise(Task task, List<String> lines) {
         notNull(task, "task is null");
         notEmpty(lines, "lines is empty");
+        isFalse(size(lines) > 100, "max lines is 100");
 
         this.task = task;
         this.lines = lines;
